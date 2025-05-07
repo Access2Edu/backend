@@ -6,7 +6,6 @@ import {
   Login,
   Logout,
   registerStudent,
-  sendSignupOTPStudent,
   verifySignupOTPStudent,
   updateStudent,
   googleAuthStudent,
@@ -224,37 +223,6 @@ studentRouter.get("/get-all-subject", studentAuth, fetchAllSubject);
  */
 studentRouter.post("/send-forgot-password-otp", sendForgotPasswordOTPStudent);
 
-/**
- * @swagger
- * api/v1/students/send-signup-otp:
- *   post:
- *     summary: Send OTP for email verification
- *     description: Sends an OTP to the student's email address after signup.
- *     tags: [Student]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - email
- *             properties:
- *               email:
- *                 type: string
- *                 format: email
- *                 description: The student's email address.
- *     responses:
- *       200:
- *         description: OTP sent successfully .
- *       400:
- *         description: Email address is missing or invalid.
- *       404:
- *         description: Student not found.
- *       500:
- *         description: Internal server error.
- */
-studentRouter.post("/send-signup-otp", sendSignupOTPStudent);
 
 /**
  * @swagger
